@@ -11,7 +11,6 @@ def generatePoints():
     x2 = np.random.uniform(55, 100 + eps, 50)
     y2 = np.random.uniform(0, 100 + eps, 50)
 
-    print()
     x = np.concatenate((x, x2), axis=0)
 
     y = np.concatenate((y, y2), axis=0)
@@ -43,13 +42,15 @@ def drawLine(prms):
     plt.plot(x, y, "-g")
 
 
-def draw(pts, prms):
+def draw(pts, prms, it):
     plt.plot(pts[:50, 0], pts[:50, 1], "bo", label="-1")
     plt.plot(pts[50:, 0], pts[50:, 1], "ro", label="1")
 
     drawLine(prms)
 
     addLabels(pts)
+
+    plt.title(f"Correctly classified = {fitness(pts, prms)} found at iteration {it}")
 
     plt.gca().set_xlim([-25, 125])
     plt.gca().set_ylim([-25, 125])
@@ -124,7 +125,7 @@ def iteratedHillClimbing():
             minIteration = iteration
 
     print(f"Correctly classified = {finalValue}\nLine = {finalParams[0]} * x + {finalParams[1]} * y + {finalParams[2]}\nAt Iteration = {minIteration}")
-    draw(points, finalParams)
+    draw(points, finalParams, minIteration)
 
 
 if __name__ == '__main__':

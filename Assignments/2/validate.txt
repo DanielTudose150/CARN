@@ -1,0 +1,4 @@
+Wrongly classified elements = 1151
+Percentage of wrongly classified elements = 11.51%
+Accuracy = 88.49%
+Distribution = [81, 47, 77, 221, 78, 114, 101, 98, 153, 181]
